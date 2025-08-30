@@ -9,7 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.get("/", function(req,res){
     fs.readdir(`./files`, function(err,files){
         console.log(files);
@@ -17,7 +16,6 @@ app.get("/", function(req,res){
     });
     
 })
-
 
 app.post("/create", function(req,res){
     // console.log(req.body);
@@ -36,11 +34,8 @@ app.get("/file/:filename", function(req,res){
         res.render("show", {filename: req.params.filename, filedata:filedata});
 
     })
-    
-     
+         
 })
-
-
 
 app.listen(3000, function(){
     console.log("Server is running on port 3000");
